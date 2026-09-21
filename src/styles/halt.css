@@ -1,0 +1,338 @@
+img {
+  display: block;
+}
+
+.external-link-icon {
+  display: inline;
+  width: auto;
+  height: 20px;
+  vertical-align: text-bottom;
+}
+
+.halt-footer-grid {
+  width: min(100% - 2rem, 1140px);
+  margin-inline: auto;
+}
+
+.halt-main section {
+  padding-block: 2rem;
+  background: var(--background);
+}
+
+.halt-main section + section {
+  padding-top: 1rem;
+}
+
+.halt-main h1,
+.halt-main h2,
+.halt-main h3,
+.halt-main h4,
+.halt-main h5,
+.halt-main h6,
+.halt-main p {
+  margin-top: 0;
+}
+
+.halt-main section .container > :last-child,
+.halt-main section .span-full > :last-child {
+  margin-bottom: 0;
+}
+
+.halt-hero h1,
+.halt-title :is(h1, h3) {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+}
+
+.halt-content :is(h2, h3),
+.halt-media h3 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.halt-features .section-title,
+.halt-features .icon-title,
+.halt-team .section-title {
+  font-size: 1.35rem;
+}
+
+.halt-features .section-title {
+  margin-bottom: 1.33em;
+}
+
+.halt-content h2 {
+  margin-bottom: 1em;
+}
+
+.halt-team .partner-role {
+  margin-bottom: 2.33em;
+  font-size: .67em;
+  font-weight: bolder;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.span-full {
+  grid-column: 1 / -1;
+}
+
+.span-fill {
+  grid-column: span 8;
+}
+
+.span-6 {
+  grid-column: span 6;
+}
+
+.span-4 {
+  grid-column: span 4;
+}
+
+.span-3 {
+  grid-column: span 3;
+}
+
+.halt-hero .image-wrapper img {
+  max-height: 24rem;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.halt-hero .image-wrapper {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #f4f4f4;
+}
+
+.halt-hero .project-dates {
+  margin-bottom: 0;
+}
+
+.halt-callout .prose {
+  max-width: 62rem;
+  margin: 1.5rem auto;
+  font-size: 1.5rem;
+}
+
+.halt-callout hr {
+  width: 4rem;
+  border: 0;
+  border-top: 2px solid var(--accent);
+}
+
+.feature-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.icon-box {
+  display: grid;
+  flex: 0 0 3.2rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #666;
+  background: var(--header);
+}
+
+.feature-line-icon {
+  width: 1.7rem;
+  height: 1.7rem;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-title,
+.icon-text {
+  margin-bottom: .25rem;
+}
+
+.icon-text {
+  color: var(--muted) !important;
+  font-size: 1rem !important;
+  font-weight: 400;
+}
+
+.halt-title {
+  text-align: left;
+}
+
+.halt-title .page-intro {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.halt-main p,
+.halt-main li {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.halt-content .list {
+  padding-left: 2rem;
+  list-style: none;
+}
+
+.halt-content .list li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.halt-content .list li::before {
+  content: "";
+  position: absolute;
+  top: .35rem;
+  left: -1.65rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.news-list .news-title,
+.news-list .news-details {
+  display: block;
+  font-size: 1rem;
+}
+
+.news-list .news-title {
+  margin-bottom: .15rem;
+  font-weight: 700;
+}
+
+.news-list .news-details {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.halt-media .image-wrapper img {
+  width: 100%;
+  max-height: 25rem;
+  object-fit: contain;
+}
+
+.halt-media .image-wrapper p {
+  margin: .5rem 0 0;
+}
+
+.halt-team .container {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.halt-team .partner-group-title {
+  margin: 0 0 0.25rem;
+}
+
+.halt-team .card {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: .35rem;
+  background: var(--header);
+  box-shadow: 0 8px 25px rgb(0 0 0 / 12%);
+}
+
+.halt-team .image-wrapper {
+  padding: 1rem;
+  border-radius: .25rem;
+  background: #fff;
+}
+
+.halt-team .image-wrapper img {
+  width: 100%;
+  max-height: 8rem;
+  object-fit: contain;
+}
+
+.halt-team .image-wrapper .riken-logo {
+  display: block;
+  width: min(100%, 238px);
+  height: auto;
+  margin-inline: auto;
+}
+
+.halt-team .section-title {
+  margin-bottom: .25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.halt-media .image-wrapper > .text-center {
+  text-align: center;
+}
+
+.halt-footer {
+  padding-block: 3rem;
+  color: #fff;
+  background: var(--footer);
+}
+
+.halt-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr;
+  gap: 3rem;
+}
+
+.halt-footer img {
+  width: 100%;
+  max-width: 14rem;
+}
+
+.halt-footer h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.halt-footer a {
+  display: block;
+  width: fit-content;
+  margin-block: .35rem;
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .halt-title .page-intro,
+  .halt-main p,
+  .halt-main li {
+    text-align: left;
+  }
+
+  .halt-main section {
+    padding-block: 1.75rem;
+  }
+
+  .halt-main section + section {
+    padding-top: .75rem;
+  }
+
+  .span-fill,
+  .span-6,
+  .span-4,
+  .span-3 {
+    grid-column: 1 / -1;
+  }
+
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .halt-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,21 +1,179 @@
 ---
-
+import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-	  <a href="/">Home</a>
-        <a href="/about/">About</a>
-        <a href="/blog/">Blog</a>
+<SiteLayout title="Dr Jason Laurie | Research and Publications" description="Research, publications, and projects of Dr Jason Laurie in fluid dynamics, wave turbulence, and nonlinear optics.">
+<section class="page-title">
 
-		<h1>My Astro Site</h1>
-	</body>
-</html>
+    <div class="container">
+
+                <h1 class="text-center"><strong>Welcome</strong></h1>
+
+    </div>
+</section>
+
+<section class="split-section home-intro">
+    <div class="container">
+
+                <div class="split-row">
+                    <div class="figure">
+                           <img src="/assets/images/jason_photo_curved.webp" alt="Jason Laurie" title="Jason Laurie Photo" width="1200" height="1196">
+                    </div>
+
+                    <div class="media-content">
+
+                            <p class="text-justify">
+                            Welcome to the webpage of Dr Jason Laurie. I previously worked in academia as a Senior Lecturer in Applied Mathematics at Aston University in Birmingham, UK. This webpage is currently being maintained for those interested in my previous research and publications. <br> <br>
+
+                            During my academic career, my particular research interests included problems related to fluid dynamics and turbulence (both classical and quantum), nonlinear waves, and nonlinear optics.</p>
+                        <span class="orcid-id"> ORCID</span> <a href="https://orcid.org/0000-0002-3621-6052"><img src="/assets/images/orcid_icon.png" alt="ORCID" height="20"><span class="orcid-id"> 0000-0002-3621-6052</span></a> <br>
+                                            <a href="https://arxiv.org/a/laurie_j_1"><img src="/assets/images/arxiv_icon.png" alt="arXiv" height="20"><span class="muted-id"> /a/laurie_j_1</span></a><br>
+                                            <a href="https://scholar.google.com/citations?user=Sfl_4SIAAAAJ&hl=en"><img src="/assets/images/google_scholar_icon.png" alt="Google Scholar" height="20"></a><br>
+                    </div>
+
+                </div>
+
+    </div>
+</section>
+
+<section class="band-heading">
+
+    <div class="container">
+
+
+                    <div class="label-row">
+                        <div class="label-icon">
+                            <svg class="section-line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5m0 14h16M7 16l4-5 3 3 5-7" /></svg>
+                        </div>
+
+                            <h2 class="section-title">Research Interests</h2>
+
+                    </div>
+
+
+    </div>
+
+</section>
+
+<section class="content-section">
+
+    <div class="container">
+
+            <div class="text-justify bullet-list">
+                <ul>
+                    <li><strong>Fluid dynamics and turbulence</strong> - 2D Navier-Stokes and geophysical turbulent flows, quantum turbulence in superfluid Helium-4 and Bose-Einstein condensates, vortex dynamics, point-vortex systems</li>
+
+                    <li><strong>Wave turbulence</strong> - Kelvin waves in superfluid Helium-4, optical wave turbulence, gravitational waves in cosmology</li>
+
+                    <li><strong>Nonlinear optics</strong> - turbulence in optical fibres and liquid crystals, optical instabilities and routes towards turbulence, solitary wave formation and dynamics</li>
+
+                </ul>
+            </div>
+
+    </div>
+</section>
+
+<section class="band-heading">
+
+    <div class="container">
+
+
+                    <div class="label-row">
+                        <div class="label-icon">
+                            <svg class="section-line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v3m12-3v3M4 9h16M5 5h14a1 1 0 0 1 1 1v14H4V6a1 1 0 0 1 1-1Z" /></svg>
+                        </div>
+
+                            <h2 class="section-title">Activities</h2>
+
+                    </div>
+
+
+    </div>
+</section>
+
+<section class="content-section">
+
+    <div class="container">
+
+            <div class="text-justify bullet-list">
+
+                <table>
+                      <tr>
+                          <td><strong>2021 - 2024</strong> </td>
+                          <td>Leverhulme Trust Project Grant RPG-2021-014 <em>A Mathematical Approach to Tame Optical Turbulence</em></td>
+                      </tr>
+                      <tr>
+                          <td><strong>2019 - 2024</strong> </td>
+                          <td>Horizon 2020 MSCA-RISE Grant No. 823937 <em>Hydrodynamical Approach to Light Turbulence</em> (HALT)</td>
+                      </tr>
+
+                    <tr>
+                    <td><strong>2018 - 2021</strong> </td>
+                    <td>Member of the EPSRC Early Career Forum for Mathematical Sciences</td>
+                      </tr>
+
+                      <tr>
+                    <td><strong>2017 - 2020</strong> </td>
+                    <td>Lead Organiser for the UK Fluids Network Special Interest Group in Wave Turbulence</td>
+                      </tr>
+
+                </table>
+
+            </div>
+
+    </div>
+</section>
+
+<section class="band-heading">
+
+    <div class="container">
+
+
+                    <div class="label-row">
+                        <div class="label-icon">
+                            <svg class="section-line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3.2 4.5 6.2 4.5 9S15 17.8 12 21c-3-3.2-4.5-6.2-4.5-9S9 6.2 12 3Z" /></svg>
+                        </div>
+
+                            <h2 class="section-title">Employment History</h2>
+
+                    </div>
+
+
+    </div>
+</section>
+
+<section class="content-section">
+
+    <div class="container">
+
+            <div class="text-justify bullet-list">
+
+                 <table>
+                     <tr>
+                          <td><strong>2022 - 2025</strong></td>
+                          <td>Senior Lecturer, Department of Mechatronics and Biomedical Engineering, Aston University, United Kingdom</td>
+                      </tr>
+                      <tr>
+                          <td><strong>2016 - 2022</strong></td>
+                          <td>Lecturer, Department of Mathematics, Aston University, United Kingdom</td>
+                      </tr>
+                      <tr>
+                        <td><strong>2012 - 2015</strong></td>
+                           <td>Postdoctoral Research Fellow, Department of Physics of Complex Systems, Weizmann Institute of Science, Israel</td>
+                      </tr>
+
+                      <tr>
+                        <td><strong>2010 - 2012</strong></td>
+                        <td>Postdoctoral Research Fellow, Laboratoire de Physique, École Normale Supérieure de Lyon, France</td>
+                     </tr>
+
+                      <tr>
+                        <td><strong>2006 - 2010</strong></td>
+                            <td>PhD in Mathematics, Mathematics Institute, University of Warwick, United Kingdom</td>
+                      </tr>
+                </table>
+            </div>
+
+    </div>
+</section>
+</SiteLayout>

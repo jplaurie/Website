@@ -1,0 +1,36 @@
+---
+interface Props {
+  type: 'doi' | 'arxiv' | 'external';
+  href: string;
+  identifier?: string;
+  label?: string;
+}
+
+const { type, href, identifier, label } = Astro.props;
+const icon = type === 'doi'
+  ? '/assets/images/doi_icon.png'
+  : type === 'arxiv'
+    ? '/assets/images/arxiv_icon.png'
+    : '/assets/images/url_icon.png';
+const accessibleLabel = label ?? (type === 'external' ? 'External publication link' : `${type}: ${identifier}`);
+---
+
+<a href={href} class="publication-link" aria-label={accessibleLabel}>
+  <img src={icon} alt={type === 'external' ? 'External link' : type === 'doi' ? 'DOI' : 'arXiv'} height="20" />
+  {type === 'doi' && identifier && <span> {identifier}</span>}
+  {type === 'arxiv' && identifier && <span class="muted-id">:{identifier}</span>}
+</a>
+
+<style>
+  .publication-link {
+    white-space: nowrap;
+  }
+
+  .publication-link img {
+    display: inline;
+    width: auto;
+    max-width: none;
+    height: 20px;
+    vertical-align: text-bottom;
+  }
+</style>

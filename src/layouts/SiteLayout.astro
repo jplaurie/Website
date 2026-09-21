@@ -1,0 +1,35 @@
+---
+import SiteHeader from '../components/SiteHeader.astro';
+import ProjectHeader from '../components/ProjectHeader.astro';
+import { projectHeaders } from '../config/projects';
+import '../styles/base.css';
+import '../styles/site.css';
+
+interface Props {
+  title: string;
+  description: string;
+  project?: 'sig' | 'leverhulme';
+}
+
+const { title, description, project } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body class:list={{ 'project-site': project, 'leverhulme-site': project === 'leverhulme' }}>
+    {project ? <ProjectHeader config={projectHeaders[project]} /> : <SiteHeader />}
+    <main><slot /></main>
+    <footer class="site-footer" aria-label="Footer"></footer>
+    <script>
+      import '../scripts/navigation.js';
+    </script>
+  </body>
+</html>

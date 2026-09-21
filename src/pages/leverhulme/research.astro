@@ -1,0 +1,160 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import PublicationLink from '../../components/PublicationLink.astro';
+---
+
+<SiteLayout
+  title="Leverhulme Project Research"
+  description="Research findings and publications from A Mathematical Approach to Tame Optical Turbulence"
+  project="leverhulme"
+>
+  <section class="page-title">
+    <div class="container">
+      <h1 class="text-center"><strong>Research</strong></h1>
+    </div>
+  </section>
+
+  <section class="section-heading">
+    <div class="container">
+      <h2 class="text-left">Project Findings</h2>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container text-justify">
+      <p>
+        The project developed new mathematical tools for understanding how ordered light waves become
+        turbulent in nonlinear optical systems. Its main model was the Schrödinger–Helmholtz equation,
+        which describes spatially nonlocal optical media and connects idealised nonlinear-wave theory to
+        systems such as optical fibres and photorefractive liquid crystals.
+      </p>
+      <p>
+        The work combined wave turbulence theory with the study of coherent structures such as solitons
+        and optical vortices. This produced descriptions of weak turbulence in one- and two-dimensional
+        systems, alongside new results about the interactions that drive stronger turbulent states.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-heading">
+    <div class="container">
+      <h2 class="text-left">Key Outcomes</h2>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="text-justify bullet-list">
+        <ul>
+          <li>
+            <strong>Reduced theories of optical wave turbulence</strong> - Semi-local kinetic models were
+            developed for both one- and two-dimensional systems. These models predict how wave action is
+            transferred across scales and provide a practical framework for studying nonlocal optical
+            turbulence.
+          </li>
+          <li>
+            <strong>Soliton interactions and bound states</strong> - Strong one-dimensional turbulence was
+            found to approach an oscillating bound state containing multiple soliton signatures rather than
+            a single dominant soliton. Soliton mergers are promoted when their phases align and inhibited
+            when their phases are out of sync.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="split-section project-image-left">
+    <div class="container">
+      <figure class="split-row project-result">
+        <figcaption class="media-content text-justify">
+          Formation of an oscillating bound state soliton in the 1D Schrödinger–Helmholtz equation. Figure taken from Ref: C. Colléaux, J. Skipp, S. Nazarenko and J. Laurie, <em>Physica D</em>, <strong>477</strong>, 134687, (2025).
+        </figcaption>
+        <div class="figure">
+          <img
+            src="/assets/images/soliton.png"
+            alt="Three-dimensional plot of wave amplitude over position and time"
+            loading="lazy"
+          />
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="text-justify bullet-list">
+        <ul>
+          <li>
+            <strong>Optical-vortex dynamics</strong> - The point-vortex model was derived from the
+            two-dimensional nonlinear Schrödinger equation using a Hamiltonian approach. Subsequent work
+            characterised vortex dipole scattering, cluster disruption, and mechanisms capable of producing
+            topological changes in two-dimensional flows.
+          </li>
+          <li>
+            <strong>Soliton stability and bifurcations</strong> - Numerical methods were developed to locate
+            and test coherent stationary states. The calculations identified two distinct families of soliton
+            solutions, providing a basis for continued work on sequential bifurcations.
+          </li>
+          <li>
+            <strong>Wider applications</strong> - Although motivated by nonlinear optics, the methods may
+            also inform models of Bose–Einstein condensates, quantum-vortex waves, and nonlocal models of
+            dark matter.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-heading">
+    <div class="container">
+      <h2 class="text-left">Published Journal Articles</h2>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="text-justify bullet-list">
+        <ul class="project-publications">
+          <li>
+            K. Lydon, S. Nazarenko and J. Laurie, <strong>Dipole Dynamics in the Point Vortex Model</strong>, <em>J. Phys. A</em>, <strong>55</strong>, 385702, (2022).&emsp;<PublicationLink type="doi" href="https://doi.org/10.1088/1751-8121/ac89bc" identifier="10.1088/1751-8121/ac89bc" />
+            &emsp;<PublicationLink type="arxiv" href="https://arxiv.org/abs/2112.13365" identifier="2112.13365" />
+          </li>
+          <li>
+            J. Skipp, J. Laurie and S. Nazarenko, <strong>Hamiltonian Derivation of the Point Vortex Model from the Two-Dimensional Nonlinear Schrödinger Equation</strong>, <em>Phys. Rev. E</em>, <strong>107</strong>, 025107, (2023).
+            &emsp;<PublicationLink type="doi" href="https://doi.org/10.1103/PhysRevE.107.025107" identifier="10.1103/PhysRevE.107.025107" />
+            &emsp;<PublicationLink type="arxiv" href="https://arxiv.org/abs/2208.10412" identifier="2208.10412" />
+          </li>
+          <li>
+            J. Skipp, J. Laurie and S. Nazarenko, <strong>An Effective Semilocal Model for Wave Turbulence in 2D Nonlinear Optics</strong>, <em>Proc. R. Soc. A</em>, <strong>479</strong>, 20230162, (2023).
+            &emsp;<PublicationLink type="doi" href="https://doi.org/10.1098/rspa.2023.0162" identifier="10.1098/rspa.2023.0162" />
+            &emsp;<PublicationLink type="arxiv" href="https://arxiv.org/abs/2304.13547" identifier="2304.13547" />
+          </li>
+          <li>
+            C. Colléaux, J. Skipp, S. Nazarenko and J. Laurie, <strong>A Bound State Attractor in Optical Turbulence</strong>, <em>Physica D</em>, <strong>477</strong>, 134687, (2025).
+            &emsp;<PublicationLink type="doi" href="https://doi.org/10.1016/j.physd.2025.134687" identifier="10.1016/j.physd.2025.134687" />
+            &emsp;<PublicationLink type="arxiv" href="https://arxiv.org/abs/2410.12507" identifier="2410.12507" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-heading">
+    <div class="container">
+      <h2 class="text-left">Preprint</h2>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="container">
+      <div class="text-justify bullet-list">
+        <ul class="project-publications">
+          <li>
+            C. Colléaux, J. Skipp, J. Laurie and S. Nazarenko, <strong>Semi-Local One-Dimensional Optical Wave Turbulence</strong> (2024).
+            &emsp;<PublicationLink type="arxiv" href="https://arxiv.org/abs/2412.14153" identifier="2412.14153" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</SiteLayout>

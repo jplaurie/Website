@@ -1,43 +1,19 @@
-# Astro Starter Kit: Minimal
+# Jason Laurie website
+
+Astro source for [jasonlaurie.com](https://jasonlaurie.com). The production site is built into `dist/`; that directory is generated and is not committed.
+
+## Local development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm ci
+./node_modules/.bin/astro dev --background
+./node_modules/.bin/astro dev status
+./node_modules/.bin/astro dev stop
+npm run build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## GitHub Pages
 
-## 🚀 Project Structure
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site when `master` is pushed. In this repository's **Settings → Pages**, select **GitHub Actions** as the publishing source. Set **jasonlaurie.com** as the custom domain in the same settings after removing it from the previous Pages repository. GitHub ignores `public/CNAME` for Actions deployments, so the Pages setting is required.
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The site uses root-relative links and is configured for `https://jasonlaurie.com`. A preview at a repository subpath such as `/astro_webpage/` will need a matching Astro `base` setting and updated links, or a temporary custom subdomain.

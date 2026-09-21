@@ -1,0 +1,65 @@
+---
+import LineIcon from './LineIcon.astro';
+import type { ProjectHeaderConfig } from '../config/projects';
+import { normalizePath } from '../utils/paths';
+
+interface Props {
+  config: ProjectHeaderConfig;
+}
+
+const { config } = Astro.props;
+const currentPath = normalizePath(Astro.url.pathname);
+const pathFromHref = (href: string) => normalizePath(new URL(href, Astro.url).pathname);
+const isCurrent = (href: string) => pathFromHref(href) === currentPath && !href.includes('#');
+const groupIsCurrent = (links: Array<{ href: string }>) =>
+  links.some((link) => pathFromHref(link.href) === currentPath);
+---
+
+<header class="project-header">
+  <nav class="project-nav" aria-label={`${config.title} navigation`}>
+    <a class="project-identity" href={config.homeHref}>
+      <img
+        class:list={{ 'logo-panel': config.logoPanel }}
+        src={config.logo}
+        alt={config.logoAlt}
+      />
+      <span>{config.title}</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="project-navigation">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+
+    <div class="nav-links project-links" id="project-navigation">
+      <details class:list={{ 'is-current': currentPath === pathFromHref(config.homeHref) }} data-nav-group>
+        <summary><LineIcon name="home" />Home</summary>
+        <div class="nav-dropdown">
+          <a href={config.homeHref} data-nav-link aria-current={isCurrent(config.homeHref) ? 'page' : undefined}>{config.homeLabel}</a>
+          <a href="/index.html">Jason Laurie Home</a>
+        </div>
+      </details>
+
+      {config.links.map((item) => item.children ? (
+        <details class:list={{ 'is-current': groupIsCurrent(item.children) }} data-nav-group>
+          <summary><LineIcon name={item.icon} />{item.label}</summary>
+          <div class="nav-dropdown">
+            {item.children.map((child) => (
+              <a href={child.href} data-nav-link aria-current={isCurrent(child.href) ? 'page' : undefined}>
+                {child.label}
+              </a>
+            ))}
+          </div>
+        </details>
+      ) : (
+        <a
+          href={item.href}
+          data-nav-link
+          aria-current={item.href && isCurrent(item.href) ? 'page' : undefined}
+        >
+          <LineIcon name={item.icon} />{item.label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

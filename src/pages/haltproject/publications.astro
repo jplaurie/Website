@@ -1,0 +1,561 @@
+---
+import HaltLayout from '../../layouts/HaltLayout.astro';
+import PublicationLink from '../../components/PublicationLink.astro';
+
+const publications = [
+  {
+    authors: "A. V. Kovalev, P. S. Dmitriev, A. G. Vladimirov, A. Pimenov, G. Huyet and E. A. Viktorov",
+    title: "Bifurcation structure of a swept-source laser",
+    journal: "Phys. Rev. E",
+    details: { volume: "101", locator: "012212", year: 2020 },
+    doi: {
+      label: "10.1103/physreve.101.012212",
+      url: "https://dx.doi.org/10.1103/physreve.101.012212"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2001.07899"
+    }
+  },
+  {
+    authors: "S. Slepneva, A. Kovalev, N. Rebrova, K. Grigorenko, E. Viktorov and G. Huyet",
+    title: "Coherence transfer in an akinetic swept source OCT laser with optical feedback",
+    journal: "Opt. Lett.",
+    details: { volume: "44", locator: "5161", year: 2019 },
+    doi: {
+      label: "10.1364/ol.44.005161",
+      url: "https://dx.doi.org/10.1364/ol.44.005161"
+    },
+    repository: null
+  },
+  {
+    authors: "A. Pryamikov, G. Alagashev, G. Falkovich and S. Turitsyn",
+    title: "Light transport and vortex-supported wave-guiding in micro-structured optical fibres",
+    journal: "Sci. Rep.",
+    details: { volume: "10", locator: "2507", year: 2020 },
+    doi: {
+      label: "10.1038/s41598-020-59508-z",
+      url: "https://doi.org/10.1038/s41598-020-59508-z"
+    },
+    repository: null
+  },
+  {
+    authors: "S. Galtier, J. Laurie and S. Nazarenko",
+    title: "A Plausible Model of Inflation Driven by Strong Gravitational Wave Turbulence",
+    journal: "Universe",
+    details: { volume: "6", locator: "98", year: 2020 },
+    doi: {
+      label: "10.3390/universe6070098",
+      url: "https://dx.doi.org/10.3390/universe6070098"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/1910.07634"
+    }
+  },
+  {
+    authors: "U. Giuriato, G. Krstulovic and S. Nazarenko",
+    title: "How trapped particles interact with and sample superfluid vortex excitations",
+    journal: "Phys. Rev. Res.",
+    details: { volume: "2", locator: "023149", year: 2020 },
+    doi: {
+      label: "10.1103/physrevresearch.2.023149",
+      url: "https://dx.doi.org/10.1103/physrevresearch.2.023149"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/1907.01111"
+    }
+  },
+  {
+    authors: "D. Proment and G. Krstulovic",
+    title: "Matching theory to characterize sound emission during vortex reconnection in quantum fluids",
+    journal: "Phys. Rev. Fluids",
+    details: { volume: "5", locator: "104701", year: 2020 },
+    doi: {
+      label: "10.1103/physrevfluids.5.104701",
+      url: "https://doi.org/10.1103/physrevfluids.5.104701"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2005.02047"
+    }
+  },
+  {
+    authors: "N. Müller and G. Krstulovic",
+    title: "Kolmogorov and Kelvin wave cascades in a generalized model for quantum turbulence",
+    journal: "Phys. Rev. B",
+    details: { volume: "102", locator: "134513", year: 2020 },
+    doi: {
+      label: "10.1103/physrevb.102.134513",
+      url: "https://dx.doi.org/10.1103/physrevb.102.134513"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2007.00540"
+    }
+  },
+  {
+    authors: "A. Villois, D. Proment and G. Krstulovic",
+    title: "Irreversible dynamics of vortex reconnections in quantum fluids",
+    journal: "Phys. Rev. Lett.",
+    details: { volume: "125", locator: "164501", year: 2020 },
+    doi: {
+      label: "10.1103/physrevlett.125.164501",
+      url: "https://doi.org/10.1103/physrevlett.125.164501"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2005.02048"
+    }
+  },
+  {
+    authors: "A. Griffin, S. Nazarenko and D. Proment",
+    title: "Breaking of Josephson junction oscillations and onset of quantum turbulence in Bose-Einstein condensates",
+    journal: "J. Phys. A",
+    details: { volume: "53", locator: "175701", year: 2020 },
+    doi: {
+      label: "10.1088/1751-8121/ab7ad0",
+      url: "https://doi.org/10.1088/1751-8121/ab7ad0"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/1910.00096"
+    }
+  },
+  {
+    authors: "V. Shukla and S. Nazarenko",
+    title: "Nonequilibrium Bose-Einstein condensation",
+    journal: "Phys. Rev. A",
+    details: { volume: "105", locator: "033305", year: 2022 },
+    doi: {
+      label: "10.1103/physreva.105.033305",
+      url: "https://dx.doi.org/10.1103/physreva.105.033305"
+    },
+    repository: {
+      label: "Repository",
+      url: "http://arxiv.org/abs/2105.07274"
+    }
+  },
+  {
+    authors: "S. Thalabard, S. Medvedev, V. Grebenev and S. Nazarenko",
+    title: "Inverse cascade anomalies in fourth-order Leith models",
+    journal: "J. Phys. A",
+    details: { volume: "55", locator: "015702", year: 2022 },
+    doi: {
+      label: "10.1088/1751-8121/ac3858",
+      url: "https://dx.doi.org/10.1088/1751-8121/ac3858"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2107.09594"
+    }
+  },
+  {
+    authors: "J. Skipp and S. Nazarenko",
+    title: "Equilibria and condensates in Rossby and drift wave turbulence",
+    journal: "J. Phys. A",
+    details: { volume: "55", locator: "015701", year: 2022 },
+    doi: {
+      label: "10.1088/1751-8121/ac3946",
+      url: "https://dx.doi.org/10.1088/1751-8121/ac3946"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2108.08349"
+    }
+  },
+  {
+    authors: "B. Semisalov, V. Grebenev, S. Medvedev and S. Nazarenko",
+    title: "Numerical analysis of a self-similar turbulent flow in Bose-Einstein condensates",
+    journal: "Commun. Nonlinear Sci. Numer. Simul.",
+    details: { volume: "102", locator: "105903", year: 2021 },
+    doi: {
+      label: "10.1016/j.cnsns.2021.105903",
+      url: "https://doi.org/10.1016/j.cnsns.2021.105903"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://doi.org/10.48550/arxiv.2104.14591"
+    }
+  },
+  {
+    authors: "V. Grebenev, S. Medvedev, S. Nazarenko and B. Semisalov",
+    title: "Steady states in dual-cascade wave turbulence",
+    journal: "J. Phys. A",
+    details: { volume: "53", locator: "365701", year: 2020 },
+    doi: {
+      label: "10.1088/1751-8121/aba29d",
+      url: "https://doi.org/10.1088/1751-8121/aba29d"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://doi.org/10.48550/arxiv.2003.04613"
+    }
+  },
+  {
+    authors: "A. Griffin, V. Shukla, M.-E. Brachet and S. Nazarenko",
+    title: "Magnus-force model for active particles trapped on superfluid vortices",
+    journal: "Phys. Rev. A",
+    details: { volume: "101", locator: "053601", year: 2020 },
+    doi: {
+      label: "10.1103/physreva.101.053601",
+      url: "https://dx.doi.org/10.1103/physreva.101.053601"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/1909.11010v1"
+    }
+  },
+  {
+    authors: "P. Azam, A. Griffin, S. Nazarenko and R. Kaiser",
+    title: "Vortex creation, annihilation and nonlinear dynamics in atomic vapors",
+    journal: "Phys. Rev. A",
+    details: { volume: "105", locator: "043510", year: 2022 },
+    doi: {
+      label: "10.1103/physreva.105.043510",
+      url: "https://dx.doi.org/10.1103/physreva.105.043510"
+    },
+    repository: {
+      label: "Repository",
+      url: "http://arxiv.org/abs/2203.04059"
+    }
+  },
+  {
+    authors: "U. Giuriato and G. Krstulovic",
+    title: "Stochastic motion of finite-size immiscible impurities in a dilute quantum fluid at finite temperature",
+    journal: "Phys. Rev. B",
+    details: { volume: "103", locator: "024509", year: 2021 },
+    doi: {
+      label: "10.1103/physrevb.103.024509",
+      url: "https://dx.doi.org/10.1103/physrevb.103.024509"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2009.10596"
+    }
+  },
+  {
+    authors: "J.Skipp, J. Laurie and S. Nazarenko",
+    title: "Hamiltonian derivation of the point vortex model from the two-dimensional nonlinear Schrödinger equation",
+    journal: "Phys. Rev. E",
+    details: { volume: "107", locator: "025107", year: 2023 },
+    doi: {
+      label: "10.1103/physreve.107.025107",
+      url: "https://dx.doi.org/10.1103/physreve.107.025107"
+    },
+    repository: {
+      label: "Repository",
+      url: "http://arxiv.org/abs/2208.10412"
+    }
+  },
+  {
+    authors: "F. Prati, A. Perego, S. Barland and G. De Valcárcel",
+    title: "Mode-locking of lasers",
+    journal: "Photoniques",
+    details: { volume: "No. 122", locator: "70–75", year: 2023 },
+    doi: {
+      label: "10.1051/photon/202312270",
+      url: "https://dx.doi.org/10.1051/photon/202312270"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://hdl.handle.net/10550/97309"
+    }
+  },
+  {
+    authors: "J. Skipp, V. L'vov and S. Nazarenko",
+    title: "Wave turbulence in self-gravitating Bose gases and nonlocal nonlinear optics",
+    journal: "Phys. Rev. A",
+    details: { volume: "102", locator: "043318", year: 2020 },
+    doi: {
+      label: "10.1103/physreva.102.043318",
+      url: "https://dx.doi.org/10.1103/physreva.102.043318"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2003.05558"
+    }
+  },
+  {
+    authors: "M. Shavit and G. Falkovich",
+    title: "Singular Measures and Information Capacity of Turbulent Cascades",
+    journal: "Phys. Rev. Lett.",
+    details: { volume: "125", locator: "104501", year: 2020 },
+    doi: {
+      label: "10.1103/physrevlett.125.104501",
+      url: "https://dx.doi.org/10.1103/physrevlett.125.104501"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://doi.org/10.48550/arxiv.1911.12670"
+    }
+  },
+  {
+    authors: "K. Lydon, S. Nazarenko and J. Laurie",
+    title: "Dipole dynamics in the point vortex model",
+    journal: "J. Phys. A",
+    details: { volume: "55", locator: "385702", year: 2022 },
+    doi: {
+      label: "10.1088/1751-8121/ac89bc",
+      url: "https://dx.doi.org/10.1088/1751-8121/ac89bc"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2112.13365"
+    }
+  },
+  {
+    authors: "S. Nazarenko, A. Soffer and M.-B. Tran",
+    title: "On the Wave Turbulence Theory for the Nonlinear Schrödinger Equation with Random Potentials",
+    journal: "Entropy",
+    details: { volume: "21", locator: "823", year: 2019 },
+    doi: {
+      label: "10.3390/e21090823",
+      url: "https://dx.doi.org/10.3390/e21090823"
+    },
+      repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/1905.06323"
+    }
+  },
+  {
+    authors: "A. Griffin, M. Gaudesius, R. Kaiser, S. Nazarenko and G. Labeyrie",
+    title: "Analysing spatiotemporal instabilities in magneto-optical traps with the tools of turbulence theory",
+    journal: "EPL",
+    details: { volume: "141", locator: "25002", year: 2023 },
+    doi: {
+      label: "10.1209/0295-5075/acacc0",
+      url: "https://dx.doi.org/10.1209/0295-5075/acacc0"
+    },
+    repository: {
+      label: "Repository",
+      url: "http://arxiv.org/abs/2108.12257"
+    }
+  },
+  {
+    authors: "J. Skipp, J. Laurie and S. Nazarenko",
+    title: "An effective semilocal model for wave turbulence in two-dimensional nonlinear optics",
+    journal: "Proc. Roy. Soc. A",
+    details: { volume: "479", locator: "20230162", year: 2023 },
+    doi: {
+      label: "10.1098/rspa.2023.0162",
+      url: "https://dx.doi.org/10.1098/rspa.2023.0162"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2304.13547"
+    }
+  },
+  {
+    authors: "S.  Turitsyn, A. Bednyakova and E. Podivilov",
+    title: "Nonlinear Optical Pulses in Media with Asymmetric Gain",
+    journal: "Phys. Rev. Lett.",
+    details: { volume: "131", locator: "153802", year: 2023 },
+    doi: {
+      label: "10.1103/physrevlett.131.153802",
+      url: "https://dx.doi.org/10.1103/physrevlett.131.153802"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2306.13444"
+    }
+  },
+  {
+    authors: "V. Rosenhaus and G. Falkovich",
+    title: "Interaction Renormalization and Validity of Kinetic Equations for Turbulent States",
+    journal: "Phys. Rev. Lett.",
+    details: { volume: "133", locator: "244002", year: 2024 },
+    doi: {
+      label: "10.1103/physrevlett.133.244002",
+      url: "https://dx.doi.org/10.1103/physrevlett.133.244002"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2308.00033"
+    }
+  },
+  {
+    authors: "S. Sugavanam, M. Kopae, J. Peng, J. Prilepsky and S. Turitsyn",
+    title: "Analysis of laser radiation using the Nonlinear Fourier transform",
+    journal: "Nat. Commun.",
+    details: { volume: "10", locator: "5663", year: 2019 },
+    doi: {
+      label: "10.1038/s41467-019-13265-4",
+      url: "https://dx.doi.org/10.1038/s41467-019-13265-4"
+    },
+    repository: null
+  },
+  {
+    authors: "M. Shavit, N. Vladimirova and G. Falkovich",
+    title: "Emerging scale invariance in a model of turbulence of vortices and waves",
+    journal: "Phil. Trans. R. Soc. A ",
+    details: { volume: "380", locator: "20210080", year: 2022 },
+    doi: {
+      label: "10.1098/rsta.2021.0080",
+      url: "https://dx.doi.org/10.1098/rsta.2021.0080"
+    },
+    repository: null
+  },
+  {
+    authors: "P. Lassègues, M. Biscassi, M. Morisse, A. Cidrim, P. Dias, H. Eneriz, R. Teixeira, R. Kaiser, R. Bachelard and M. Hugbart",
+    title: "Transition from classical to quantum loss of light coherence",
+    journal: "Phys, Rev. A",
+    details: { volume: "108", locator: "042214", year: 2023 },
+    doi: {
+      label: "10.1103/physreva.108.042214",
+      url: "https://dx.doi.org/10.1103/physreva.108.042214"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2210.01003v1"
+    }
+  },
+  {
+    authors: "P. Magnani, P. Dias, M. Frometa, M. Martins, N. Piovella, R. Kaiser, P. Courteille, M. Hugbart, R. Bachelard and R. Teixeira",
+    title: "Breaking of reciprocity and the Pancharatnam-Berry phase for light scattered by a disordered cold-atom cloud",
+    journal: "Phys. Rev. A",
+    details: { volume: "110", locator: "L041302", year: 2024 },
+    doi: {
+      label: "10.1103/physreva.110.l041302",
+      url: "https://dx.doi.org/10.1103/physreva.110.l041302"
+    },
+    repository: {
+      label: "Repository",
+      url: "http://arxiv.org/abs/2401.05297"
+    }
+  },
+  {
+    authors: "M. Morisse, S. Joshi, J. Mika, J. Capella, R. Kaiser, R. Bachelard, L. Slodička and M. Hugbart",
+    title: "Temporal coherences of atomic chaotic light sources: The Siegert relation and its generalisation to higher-order correlation functions",
+    journal: "EPL",
+    details: { volume: "147", locator: "15001", year: 2024 },
+    doi: {
+      label: "10.1209/0295-5075/ad5d87",
+      url: "https://dx.doi.org/10.1209/0295-5075/ad5d87"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2404.01711"
+    }
+  },
+  {
+    authors: "F. Sultanov, M. Sultanova, G. Falkovich, V. Lebedev, Y. Liu and V. Steinberg",
+    title: "Entropic characterization of the coil-stretch transition of polymers in random flows",
+    journal: "Phys. Rev. E",
+    details: { volume: "103", locator: "033107", year: 2021 },
+    doi: {
+      label: "10.1103/physreve.103.033107",
+      url: "https://dx.doi.org/10.1103/physreve.103.033107"
+    },
+    repository: null
+  },
+  {
+    authors: "G. Falkovich, Y. Kadish and N. Vladimirova",
+    title: "Multimode correlations and the entropy of turbulence in shell models",
+    journal: "Phys. Rev. E",
+    details: { volume: "108", locator: "015103", year: 2023 },
+    doi: {
+      label: "10.1103/physreve.108.015103",
+      url: "https://dx.doi.org/10.1103/physreve.108.015103"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2209.05816"
+    }
+  },
+  {
+    authors: "L. Rebollo-Neira and J. Laurie",
+    title: "Recursive construction of biorthogonal polynomials for handling polynomial regression",
+    journal: "Appl. Math. Comput.",
+    details: { volume: "507", locator: "129578", year: 2025 },
+    doi: {
+      label: "10.1016/j.amc.2025.129578",
+      url: "https://dx.doi.org/10.1016/j.amc.2025.129578"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2407.03349"
+    }
+  },
+  {
+    authors: "C. Colléaux, J. Skipp, S. Nazarenko and J. Laurie",
+    title: "A bound state attractor in optical turbulence",
+    journal: "Physica D",
+    details: { volume: "477", locator: "134687", year: 2025 },
+    doi: {
+      label: "10.1016/j.physd.2025.134687",
+      url: "https://dx.doi.org/10.1016/j.physd.2025.134687"
+    },
+    repository: {
+      label: "Repository",
+      url: "https://arxiv.org/abs/2410.12507"
+    }
+  }
+];
+
+type SourceLink = { label: string; url: string } | null;
+type PublicationLinkType = {
+  type: 'doi' | 'arxiv' | 'external';
+  href: string;
+  identifier?: string;
+  label?: string;
+};
+
+function normaliseLink(link: SourceLink): PublicationLinkType | null {
+  if (!link) return null;
+
+  const arxivId = `${link.label} ${link.url}`.match(/arxiv(?:\.org\/abs\/|\.)(\d{4}\.\d{4,5})/i)?.[1];
+  if (arxivId) return { type: 'arxiv', href: link.url, identifier: arxivId };
+
+  const doi = link.label.match(/^10\.\S+$/)?.[0]
+    ?? link.url.match(/doi\.org\/(10\.[^?#]+)/i)?.[1];
+  if (doi) return { type: 'doi', href: link.url, identifier: doi };
+
+  return { type: 'external', href: link.url, label: link.label };
+}
+
+function publicationLinks(publication: (typeof publications)[number]): PublicationLinkType[] {
+  const order = { doi: 0, arxiv: 1, external: 2 };
+  const links = [publication.doi, publication.repository]
+    .map(normaliseLink)
+    .filter((link): link is PublicationLinkType => Boolean(link));
+
+  return links
+    .filter((link, index) => {
+      const key = `${link.type}:${link.identifier?.toLowerCase() ?? link.href.toLowerCase()}`;
+      return links.findIndex((candidate) =>
+        `${candidate.type}:${candidate.identifier?.toLowerCase() ?? candidate.href.toLowerCase()}` === key
+      ) === index;
+    })
+    .sort((a, b) => order[a.type] - order[b.type]);
+}
+---
+
+<HaltLayout title="HALT Publications" description="Publications from the HALT project">
+  <section class="halt-title">
+    <div class="container">
+      <h1>Publications</h1>
+      <p class="page-intro">
+        The HALT project is composed mostly of academic research institutions and universities.
+        Its primary research outputs are peer-reviewed publications, listed below.
+      </p>
+    </div>
+  </section>
+
+  <section class="halt-content">
+    <div class="container">
+      <ul class="list">
+        {publications.map((publication) => (
+          <li>
+            {publication.authors}. <strong>{publication.title}</strong>.
+            {' '}<em>{publication.journal}</em>, <strong>{publication.details.volume}</strong>, {publication.details.locator}, ({publication.details.year}).
+            {publicationLinks(publication).map((link) => (
+              <>&emsp;<PublicationLink {...link} /></>
+            ))}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</HaltLayout>
