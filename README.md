@@ -14,6 +14,6 @@ npm run build
 
 ## GitHub Pages
 
-The workflow in `.github/workflows/deploy.yml` builds and deploys the site when `master` is pushed. In this repository's **Settings → Pages**, select **GitHub Actions** as the publishing source. Set **jasonlaurie.com** as the custom domain in the same settings after removing it from the previous Pages repository. GitHub ignores `public/CNAME` for Actions deployments, so the Pages setting is required.
+The workflow in `.github/workflows/deploy.yml` builds and deploys the site when `master` is pushed. In this repository's **Settings → Pages**, select **GitHub Actions** as the publishing source and set **jasonlaurie.com** as the custom domain. GitHub ignores `public/CNAME` for Actions deployments, so the Pages setting is required.
 
 The site uses root-relative links and is configured for `https://jasonlaurie.com`. A preview at a repository subpath such as `/astro_webpage/` will need a matching Astro `base` setting and updated links, or a temporary custom subdomain.
