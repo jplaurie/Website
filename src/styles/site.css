@@ -38,12 +38,7 @@ img[height="20"] {
 
 .profile-links a:hover,
 .profile-links a:focus-visible {
-  color: var(--link);
-}
-
-.profile-links a.profile-link-github:hover,
-.profile-links a.profile-link-github:focus-visible {
-  color: #7dd3fc;
+  color: var(--accent);
 }
 
 .profile-links img {
@@ -407,7 +402,7 @@ td {
 
 .site-footer-name:hover,
 .site-footer-name:focus-visible {
-  color: var(--link);
+  color: var(--accent);
 }
 
 .site-footer small {

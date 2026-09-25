@@ -37,6 +37,11 @@ a {
   color: var(--link);
 }
 
+a:hover,
+a:focus-visible {
+  color: var(--accent);
+}
+
 a[href^="http://"],
 a[href^="https://"] {
   text-decoration: none;
@@ -150,7 +155,7 @@ img[src="/assets/images/arxiv_icon.png"] {
 .nav-links summary:hover,
 .nav-links a:focus-visible,
 .nav-links summary:focus-visible {
-  color: #c1c1c1;
+  color: var(--accent);
 }
 
 .nav-links summary::-webkit-details-marker {

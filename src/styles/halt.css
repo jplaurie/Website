@@ -331,7 +331,7 @@ img {
 
 .halt-footer a:hover,
 .halt-footer a:focus-visible {
-  color: #7dd3fc;
+  color: var(--accent);
 }
 
 @media (max-width: 720px) {
