@@ -1,0 +1,49 @@
+---
+interface Props {
+  layout?: 'row' | 'column' | 'grid';
+  wide?: boolean;
+}
+
+const { layout = 'row', wide = false } = Astro.props;
+
+const profiles = [
+  {
+    label: 'ORCID',
+    prefix: 'ORCID',
+    detail: '0000-0002-3621-6052',
+    href: 'https://orcid.org/0000-0002-3621-6052',
+    icon: '/assets/images/orcid_icon.png',
+    className: 'profile-link-orcid',
+  },
+  {
+    label: 'arXiv',
+    detail: '/a/laurie_j_1',
+    href: 'https://arxiv.org/a/laurie_j_1',
+    icon: '/assets/images/arxiv_icon.png',
+    className: 'profile-link-arxiv profile-link-muted',
+  },
+  {
+    label: 'Google Scholar',
+    href: 'https://scholar.google.com/citations?user=Sfl_4SIAAAAJ&hl=en',
+    icon: '/assets/images/google_scholar_icon.png',
+    className: 'profile-link-scholar',
+  },
+  {
+    label: 'GitHub',
+    detail: 'github.com/jplaurie',
+    href: 'https://github.com/jplaurie',
+    icon: '/assets/images/github_icon.svg',
+    className: 'profile-link-github',
+  },
+];
+---
+
+<nav class:list={['profile-links', `profile-links-${layout}`, { 'profile-links-wide': wide }]} aria-label="Jason Laurie's profiles">
+  {profiles.map(({ label, prefix, detail, href, icon, className }) => (
+    <a class={className} href={href} rel="me" aria-label={label}>
+      {prefix && <span>{prefix}</span>}
+      <img src={icon} alt="" height="20" />
+      {detail && <span class="profile-link-detail">{detail}</span>}
+    </a>
+  ))}
+</nav>

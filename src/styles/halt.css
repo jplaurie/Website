@@ -278,7 +278,7 @@ img {
 }
 
 .halt-footer {
-  padding-block: 3rem;
+  padding-block: 1.25rem;
   color: #fff;
   background: var(--footer);
 }
@@ -286,17 +286,40 @@ img {
 .halt-footer-grid {
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr;
-  gap: 3rem;
+  align-items: center;
+  gap: 2rem;
 }
 
 .halt-footer img {
-  width: 100%;
-  max-width: 14rem;
+  width: auto;
+  max-width: 100%;
+  max-height: 8rem;
+}
+
+.halt-footer-logo {
+  justify-self: start;
+}
+
+.halt-footer-funding {
+  justify-self: center;
+}
+
+.halt-footer-links {
+  justify-self: end;
+  text-align: left;
+}
+
+.halt-footer-links a {
+  margin-left: 0;
 }
 
 .halt-footer h2 {
-  margin-top: 0;
+  margin: 0 0 .5rem;
   font-size: 1.1rem;
+}
+
+.halt-footer p {
+  margin-block: 0;
 }
 
 .halt-footer a {
@@ -304,6 +327,11 @@ img {
   width: fit-content;
   margin-block: .35rem;
   color: #fff;
+}
+
+.halt-footer a:hover,
+.halt-footer a:focus-visible {
+  color: #7dd3fc;
 }
 
 @media (max-width: 720px) {
@@ -334,5 +362,13 @@ img {
 
   .halt-footer-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .halt-footer-logo,
+  .halt-footer-funding,
+  .halt-footer-links {
+    justify-self: start;
+    text-align: left;
   }
 }

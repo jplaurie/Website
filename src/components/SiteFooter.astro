@@ -1,0 +1,15 @@
+---
+import ProfileLinks from './ProfileLinks.astro';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" id="site-footer">
+  <div class="site-footer-content container">
+    <div class="site-footer-identity">
+      <a class="site-footer-name" href="/index.html">Dr Jason Laurie</a>
+      <small>&copy; {currentYear} Jason Laurie</small>
+    </div>
+    <ProfileLinks layout="grid" />
+  </div>
+</footer>

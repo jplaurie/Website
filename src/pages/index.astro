@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProfileLinks from '../components/ProfileLinks.astro';
 ---
 
 <SiteLayout title="Dr Jason Laurie | Research and Publications" description="Research, publications, and projects of Dr Jason Laurie in fluid dynamics, wave turbulence, and nonlinear optics.">
@@ -26,9 +27,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
                             Welcome to the webpage of Dr Jason Laurie. I previously worked in academia as a Senior Lecturer in Applied Mathematics at Aston University in Birmingham, UK. This webpage is currently being maintained for those interested in my previous research and publications. <br> <br>
 
                             During my academic career, my particular research interests included problems related to fluid dynamics and turbulence (both classical and quantum), nonlinear waves, and nonlinear optics.</p>
-                        <span class="orcid-id"> ORCID</span> <a href="https://orcid.org/0000-0002-3621-6052"><img src="/assets/images/orcid_icon.png" alt="ORCID" height="20"><span class="orcid-id"> 0000-0002-3621-6052</span></a> <br>
-                                            <a href="https://arxiv.org/a/laurie_j_1"><img src="/assets/images/arxiv_icon.png" alt="arXiv" height="20"><span class="muted-id"> /a/laurie_j_1</span></a><br>
-                                            <a href="https://scholar.google.com/citations?user=Sfl_4SIAAAAJ&hl=en"><img src="/assets/images/google_scholar_icon.png" alt="Google Scholar" height="20"></a><br>
+                        <ProfileLinks layout="grid" wide />
                     </div>
 
                 </div>
