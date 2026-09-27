@@ -156,6 +156,33 @@ img[height="20"] {
   padding-block: .25rem 1rem;
 }
 
+.research-card {
+  width: min(100% - 2rem, 1140px);
+  margin: clamp(2rem, 4vw, 3.5rem) auto;
+}
+
+.research-card > section > .container {
+  width: 100%;
+  padding-inline: 0;
+}
+
+.research-card .research-project {
+  padding-top: 0;
+}
+
+.research-card .content-section {
+  padding-bottom: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.research-project-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.55rem, 2.25vw, 2.05rem);
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.1;
+  text-align: left;
+}
+
 .split-row {
   display: flex;
   flex-direction: row-reverse;
@@ -236,6 +263,10 @@ img[height="20"] {
 
 .research-project .figure {
   padding-inline: 0;
+}
+
+.research-project .figure-large {
+  width: 52%;
 }
 
 @media (min-width: 721px) {

@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
 ---
 
 <SiteLayout title="Teaching" description="Teaching experience and qualifications of Jason Laurie">
@@ -7,6 +8,14 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     <div class="container">
 
                 <h1 class="text-center"><strong>Teaching</strong></h1>
+
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+
+            <p class="text-justify">This page provides a summary of my teaching experience and history, including undergraduate and postgraduate teaching at Aston University, extracurricular employability workshops, professional teaching qualifications, and links to selected computational teaching materials developed for students.</p>
 
     </div>
 </section>
@@ -22,9 +31,7 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 <section class="content-section">
     <div class="container">
 
-            <div >
-                <p>I am a senior fellow of the Higher Education Academy (SFHEA) and hold a Masters in Education (MEd) postgraduate degree with a research dissertation on alleviating the mathematics learning transition in higher education.</p>
-            </div>
+            <p class="text-justify">I am a senior fellow of the Higher Education Academy (SFHEA) and hold a Masters in Education (MEd) postgraduate degree with a research dissertation on alleviating the mathematics learning transition in higher education.</p>
 
     </div>
 </section>
@@ -79,9 +86,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
             <div class="bullet-list">
                 <ul>
-                    <li>An Introduction to Python (3-hour interactive lecture) - information can be found via the GitHub page <a href="https://github.com/AstonMath/Intro_Python"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
+                    <li>An Introduction to Python (3-hour interactive lecture) — <ExternalLink href="https://github.com/AstonMath/Intro_Python">View course materials</ExternalLink></li>
 
-                    <li>Python for Data Analytics (3-hour interactive lecture) - information can be found via the GitHub page <a href="https://github.com/AstonMath/Python_Data"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
+                    <li>Python for Data Analytics (3-hour interactive lecture) — <ExternalLink href="https://github.com/AstonMath/Python_Data">View course materials</ExternalLink></li>
 
                 </ul>
             </div>
@@ -89,4 +96,3 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     </div>
 </section>
 </SiteLayout>
-

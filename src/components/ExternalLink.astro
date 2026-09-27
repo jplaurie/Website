@@ -1,0 +1,47 @@
+---
+interface Props {
+  href: string;
+  ariaLabel?: string;
+}
+
+const { href, ariaLabel } = Astro.props;
+---
+
+<a class="external-link" href={href} rel="external" aria-label={ariaLabel}>
+  <slot />
+  <span class="external-link-arrow" aria-hidden="true">↗</span>
+  <span class="visually-hidden"> (external link)</span>
+</a>
+
+<style>
+  .external-link {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .45rem;
+    color: var(--accent);
+    font-weight: 650;
+    text-decoration: none;
+  }
+
+  .external-link-arrow {
+    display: inline-block;
+    transition: transform .18s ease;
+  }
+
+  .external-link:hover .external-link-arrow,
+  .external-link:focus-visible .external-link-arrow {
+    transform: translate(.18rem, -.18rem);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>

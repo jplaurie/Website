@@ -1,5 +1,6 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
 ---
 
 <SiteLayout title="Research" description="Jason Laurie research interests and projects">
@@ -47,10 +48,10 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
             <div class="text-justify bullet-list">
                 <ul>
-                    <li><strong>Marie Skłodowska-Curie Research Fellowship:</strong> 2 years funding <a href="https://ec.europa.eu/research/mariecurieactions/actions/individual-fellowships_en"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
-                    <li><strong>The EPSRC Postdoctoral Fellowship:</strong> 3 years funding for research in designated 'priority area' <a href="https://epsrc.ukri.org/skills/fellows/"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
-                    <li><strong>The Leverhulme Trust Early Career Fellowship: </strong>3 years funding for those with a UK degree <a href="https://www.leverhulme.ac.uk/early-career-fellowships"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
-                    <li><strong>The Royal Society Newton International Fellowship: </strong>2 years funding for non-UK citizens and who are not currently working in the UK <a href="https://royalsociety.org/grants-schemes-awards/grants/newton-international/"><img src="/assets/images/url_icon.png" alt="External link" height="20"></a></li>
+                    <li><strong>Marie Skłodowska-Curie Research Fellowship:</strong> 2 years funding — <ExternalLink href="https://ec.europa.eu/research/mariecurieactions/actions/individual-fellowships_en">View fellowship details</ExternalLink></li>
+                    <li><strong>The EPSRC Postdoctoral Fellowship:</strong> 3 years funding for research in designated 'priority area' — <ExternalLink href="https://epsrc.ukri.org/skills/fellows/">View fellowship details</ExternalLink></li>
+                    <li><strong>The Leverhulme Trust Early Career Fellowship: </strong>3 years funding for those with a UK degree — <ExternalLink href="https://www.leverhulme.ac.uk/early-career-fellowships">View fellowship details</ExternalLink></li>
+                    <li><strong>The Royal Society Newton International Fellowship: </strong>2 years funding for non-UK citizens and who are not currently working in the UK — <ExternalLink href="https://royalsociety.org/grants-schemes-awards/grants/newton-international/">View fellowship details</ExternalLink></li>
                 </ul>
             </div>
 
@@ -65,14 +66,16 @@ import SiteLayout from '../layouts/SiteLayout.astro';
     </div>
 </section>
 
+<article class="research-card">
 <section class="split-section research-project project-image-left">
     <div class="container">
 
                 <div class="split-row">
                     <div class="media-content">
 
+                            <h3 class="research-project-title">Two-Dimensional and Geophysical Turbulence</h3>
                             <p class="text-justify">
-                                <strong>Two-Dimensional and Geophysical Turbulence</strong><br>Many geophysical flows are quasi two-dimensional in nature, where the flow is restricted in one dimension by either rotation, stratification, or due to physical confinement. At the most basic level they geophysical flows be modelled by two-dimensional fluid equations such as the two-dimensional Navier-Stokes or quasi-geostrophic equations. In regimes of small-scale pumping and weak dissipation, these systems display a flow of energy towards the largest scales, leading to a phenomenon called energy condensation at the scale of the system. This pile up of energy can induce the self-organization of the fluid flow into large-scale coherent structures that exist on top of a random turbulent background. For geophysical flows, these coherent structures usually take the form of system-sized vortices or zonal jets (think of hurricanes or large-scale ocean jets such as the Gulf Stream). Questions of universality of these structures are the most natural questions to ask for mathematicians. My interests relate to developing a statistical theory for modelling the complex interactions between the large-scale coherent structures and the underlying turbulent fluctuations.
+                                Many geophysical flows are quasi two-dimensional in nature, where the flow is restricted in one dimension by either rotation, stratification, or due to physical confinement. At the most basic level they geophysical flows be modelled by two-dimensional fluid equations such as the two-dimensional Navier-Stokes or quasi-geostrophic equations. In regimes of small-scale pumping and weak dissipation, these systems display a flow of energy towards the largest scales, leading to a phenomenon called energy condensation at the scale of the system. This pile up of energy can induce the self-organization of the fluid flow into large-scale coherent structures that exist on top of a random turbulent background. For geophysical flows, these coherent structures usually take the form of system-sized vortices or zonal jets (think of hurricanes or large-scale ocean jets such as the Gulf Stream). Questions of universality of these structures are the most natural questions to ask for mathematicians. My interests relate to developing a statistical theory for modelling the complex interactions between the large-scale coherent structures and the underlying turbulent fluctuations.
                             </p>
 
                     </div>
@@ -100,7 +103,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
         </div>
     </div>
 </section>
+</article>
 
+<article class="research-card">
 <section class="split-section research-project">
     <div class="container">
 
@@ -110,8 +115,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
                     </div>
                     <div class="media-content">
 
+                            <h3 class="research-project-title">Quantum Turbulence</h3>
                             <p class="text-justify">
-                                <strong>Quantum Turbulence</strong><br>Quantum turbulence is the study of chaotic fluid motion within quantum fluids and gases such as superfluid liquid helium-4 or Bose-Einstein condensates. In these systems, due to quantum mechanical effects, vortices are defined through topological defects in the fluid density and are all identical in size (of the order of 1&#8491) and strength. It is the fact that all vortices are the same that leads scientists to think that through understanding quantum turbulence dynamics could help progress in understanding classical turbulence - a billion dollar problem in industry. My interests are numerous, but include the investigation of the quasi-classical nature of coarse-grained quantum turbulence and the role of helical Kelvin waves on quantum vortex lines.
+                                Quantum turbulence is the study of chaotic fluid motion within quantum fluids and gases such as superfluid liquid helium-4 or Bose-Einstein condensates. In these systems, due to quantum mechanical effects, vortices are defined through topological defects in the fluid density and are all identical in size (of the order of 1&#8491) and strength. It is the fact that all vortices are the same that leads scientists to think that through understanding quantum turbulence dynamics could help progress in understanding classical turbulence - a billion dollar problem in industry. My interests are numerous, but include the investigation of the quasi-classical nature of coarse-grained quantum turbulence and the role of helical Kelvin waves on quantum vortex lines.
                             </p>
 
                     </div>
@@ -144,15 +150,18 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
                                     </div>
 </section>
+</article>
 
+<article class="research-card">
 <section class="split-section research-project project-image-left">
     <div class="container">
 
             <div class="split-row">
                     <div class="media-content">
 
+                            <h3 class="research-project-title">Optical Turbulence</h3>
                             <p class="text-justify">
-                                <strong>Optical Turbulence</strong><br>Optical turbulence is the study of the nonlinear interaction of light propagating through a nonlinear medium. This can include light propagating through single- and multi-mode optical fibres or through nonlinear liquid crystals. Principally, optical turbulence can be broken down into the study of weakly nonlinear wave interactions <strong><em>optical wave turbulence</em></strong> and the interaction of strongly nonlinear coherent structures in <strong><em>fully developed optical turbulence</em></strong>. My current research activity is focussed on the cross-over from optical wave turbulence to fully developed optical turbulence where the formation of coherent structures such as optical vortices (in defocussing media) and solitons (in focussing media) arise through nonlinear wave interactions.
+                                Optical turbulence is the study of the nonlinear interaction of light propagating through a nonlinear medium. This can include light propagating through single- and multi-mode optical fibres or through nonlinear liquid crystals. Principally, optical turbulence can be broken down into the study of weakly nonlinear wave interactions <strong><em>optical wave turbulence</em></strong> and the interaction of strongly nonlinear coherent structures in <strong><em>fully developed optical turbulence</em></strong>. My current research activity is focussed on the cross-over from optical wave turbulence to fully developed optical turbulence where the formation of coherent structures such as optical vortices (in defocussing media) and solitons (in focussing media) arise through nonlinear wave interactions.
                             </p>
 
                     </div>
@@ -184,7 +193,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
                                     </div>
 </section>
+</article>
 
+<article class="research-card">
 <section class="split-section research-project">
     <div class="container">
         <div class="split-row">
@@ -193,8 +204,9 @@ import SiteLayout from '../layouts/SiteLayout.astro';
                     </div>
                     <div class="media-content">
 
+                            <h3 class="research-project-title">Gravitational Wave Turbulence</h3>
                             <p class="text-justify">
-                                <strong>Gravitational Wave Turbulence</strong><br>Albert Einstein's theory of general relativity predicts the propagation of gravitational waves through the universe. Recent cosmological observations of gravitational waves have verified Einstein's hypothesis and has led to an immense interest in the dynamics of gravitational waves. My recent research has been on developing a theory for weak and strong nonlinear interactions of many gravitational waves and how this may lead to a new perspective of cosmological inflation.
+                                Albert Einstein's theory of general relativity predicts the propagation of gravitational waves through the universe. Recent cosmological observations of gravitational waves have verified Einstein's hypothesis and has led to an immense interest in the dynamics of gravitational waves. My recent research has been on developing a theory for weak and strong nonlinear interactions of many gravitational waves and how this may lead to a new perspective of cosmological inflation.
                             </p>
 
                     </div>
@@ -221,4 +233,5 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
                                     </div>
 </section>
+</article>
 </SiteLayout>

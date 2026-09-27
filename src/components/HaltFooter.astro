@@ -1,3 +1,7 @@
+---
+import ExternalLink from './ExternalLink.astro';
+---
+
 <footer class="halt-footer">
   <div class="halt-footer-grid">
     <img class="halt-footer-logo" src="/haltproject/assets/images/eu-397x265.jpg" alt="European Union" />
@@ -7,8 +11,8 @@
     </div>
     <div class="halt-footer-links">
       <h2>Quick Links</h2>
-      <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home">EU Portal</a>
-      <a href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/support/faq">Funding FAQs</a>
+      <div><ExternalLink href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/home">EU Portal</ExternalLink></div>
+      <div><ExternalLink href="https://ec.europa.eu/info/funding-tenders/opportunities/portal/screen/support/faq">Funding FAQs</ExternalLink></div>
     </div>
   </div>
 </footer>

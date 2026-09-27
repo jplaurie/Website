@@ -1,0 +1,470 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import ExternalLink from '../components/ExternalLink.astro';
+
+const repositories = {
+  schrodingerHelmholtz: 'https://github.com/jplaurie/1dSchrodingerHelmholtz',
+  grossPitaevskii: 'https://github.com/jplaurie/2dGrossPitaevskii',
+  navierStokes: 'https://github.com/jplaurie/2dNavierStokes',
+  pointVortex: 'https://github.com/jplaurie/2dPointVortex',
+};
+---
+
+<SiteLayout
+  title="Numerical Codes | Dr Jason Laurie"
+  description="Open-source numerical solvers by Jason Laurie for nonlinear waves, quantum fluids, two-dimensional turbulence, and point-vortex dynamics"
+>
+  <section class="page-title codes-hero">
+    <div class="container">
+      <h1 class="text-center"><strong>Numerical Codes</strong></h1>
+      <div class="codes-hero-grid">
+        <p class="hero-copy">
+          A collection of numerical software for studying nonlinear waves, quantum fluids, and
+          two-dimensional turbulence from continuous fields resolved in Fourier space to
+          interacting systems of discrete vortices.
+        </p>
+        <p class="hero-note">
+          Each code is written in modern C++ and includes reproducible examples, diagnostics,
+          restart support, and plotting and movie scripts. The repositories contain full installation and usage guides.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="codes-list">
+    <article class="code-section container" id="schrodinger-helmholtz">
+      <figure class="code-visual visual-waves">
+        <img
+          class="code-image"
+          src="/assets/images/soliton-transparent.png"
+          alt="Isolated soliton field from the one-dimensional Schrödinger–Helmholtz model"
+          width="1549"
+          height="1015"
+          decoding="async"
+        />
+        <figcaption>Relaxation of a nonlinear Schrödinger soliton into a soliton bound state in the one-dimensional Schrödinger–Helmholtz model.</figcaption>
+      </figure>
+
+      <div class="code-copy">
+        <p class="code-topic">Nonlinear optical waves</p>
+        <h2>1D Schrödinger–Helmholtz</h2>
+        <p>
+          A pseudo-spectral solver for the nonlocal 1D Schrödinger–Helmholtz equation and two
+          closely related limits. It is designed to explore nonlocal optical wave turbulence,
+          coherent structures, and the transition from nonlocal to local nonlinear dynamics on
+          a periodic one-dimensional domain.
+        </p>
+
+        <div class="equation-block">
+          <p class="equation-label">Governing equation</p>
+          <div class="equation" role="math" aria-label="i partial t psi equals c partial x x psi plus g psi times the inverse of one minus beta partial x x acting on the modulus of psi squared, plus mu psi">
+            <i>i</i>∂<sub>t</sub><i>ψ</i> = <i>c</i>∂<sub>xx</sub><i>ψ</i>
+            + <i>gψ</i>(1 − <i>β</i>∂<sub>xx</sub>)<sup>−1</sup>|<i>ψ</i>|<sup>2</sup>
+            + <i>μψ</i>
+          </div>
+          <p>
+            Here <i>ψ</i>(<i>x</i>,<i>t</i>) is a complex wave field and the inverse Helmholtz
+            operator smooths the nonlinear density response over a scale set by <i>β</i>.
+            Configurable forcing and large- and small-scale damping may also be included.
+          </p>
+        </div>
+
+        <p>
+          A single model setting also selects the long-wave approximation
+          (1 + <i>β</i>∂<sub>xx</sub>)|<i>ψ</i>|<sup>2</sup> or the local cubic nonlinear
+          Schrödinger equation. All variants use a fully dealiased pseudo-spectral nonlinear
+          evaluation and fixed-step exponential or integrating-factor time integrators.
+        </p>
+
+        <ul class="feature-list" aria-label="Key features">
+          <li>Three optical wave models</li>
+          <li>Stochastic or single-mode forcing</li>
+          <li>FFTW and optional OpenMP</li>
+        </ul>
+        <ExternalLink href={repositories.schrodingerHelmholtz}>View the GitHub repository</ExternalLink>
+      </div>
+    </article>
+
+    <article class="code-section code-section-reverse container" id="gross-pitaevskii">
+      <figure class="code-visual visual-quantum">
+        <img
+          class="code-image"
+          src="/assets/images/gp_vortices-transparent.png"
+          alt="Gross–Pitaevskii density field containing several quantised vortices"
+          width="1388"
+          height="1133"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Gross–Pitaevskii density field showing Bogoliubov waves and quantised vortices.</figcaption>
+      </figure>
+
+      <div class="code-copy">
+        <p class="code-topic">Quantum fluids</p>
+        <h2>2D Gross–Pitaevskii</h2>
+        <p>
+          A parallel pseudo-spectral solver for a complex 2D Gross–Pitaevskii equation on a doubly
+          periodic domain. The model describes weakly interacting Bose gases and superfluids, as well as 2D nonlinear optical propagation defined through a Kerr nonlniearity. The model resolves both dispersive waves and quantised vortices within a single field equation.
+        </p>
+
+        <div class="equation-block">
+          <p class="equation-label">Conservative governing equation</p>
+          <div class="equation" role="math" aria-label="i partial t psi equals c Laplacian psi plus g modulus psi squared psi plus mu psi">
+            <i>i</i>∂<sub>t</sub><i>ψ</i> = <i>c</i>∆<i>ψ</i>
+            + <i>g</i>|<i>ψ</i>|<sup>2</sup><i>ψ</i> + <i>μψ</i>
+          </div>
+          <p>
+            The complex field <i>ψ</i>(<b>x</b>,<i>t</i>) contains the fluid density
+            |<i>ψ</i>|<sup>2</sup> and phase. Optional Ginzburg–Landau damping, spectral
+            dissipation, and external forcing extend the equation to driven, non-equilibrium
+            systems.
+          </p>
+        </div>
+
+        <p>
+          The cubic nonlinearity is evaluated with a two-pass 3/2 dealiasing rule. CPU/OpenMP,
+          hybrid MPI/OpenMP, and NVIDIA CUDA executables share the same model, inputs, output,
+          and checkpoint format, making it possible to move a calculation between platforms.
+        </p>
+
+        <ul class="feature-list" aria-label="Key features">
+          <li>Focussing/defocussing nonlinearity</li>
+          <li>Fully dealiased</li>
+          <li>CPU, MPI, and CUDA backends</li>
+        </ul>
+        <ExternalLink href={repositories.grossPitaevskii}>View the GitHub repository</ExternalLink>
+      </div>
+    </article>
+
+    <article class="code-section container" id="navier-stokes">
+      <figure class="code-visual visual-fluid">
+        <img
+          class="code-image"
+          src="/assets/images/2d_turbulence-cropped.png"
+          alt="Complex vortical structures in a two-dimensional turbulent flow"
+          width="1277"
+          height="1231"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Vorticity field of a two-dimensional Navier–Stokes turbulent flow.</figcaption>
+      </figure>
+
+      <div class="code-copy">
+        <p class="code-topic">Classical turbulence</p>
+        <h2>2D Navier–Stokes</h2>
+        <p>
+          A parallel pseudo-spectral solver for incompressible 2D Navier-Stokes flow in vorticity
+          form. It supports forced and decaying turbulence, ordinary or scale-selective
+          dissipation, and an optional beta-plane term for idealised geophysical flows.
+        </p>
+
+        <div class="equation-block">
+          <p class="equation-label">Governing equation</p>
+          <div class="equation equation-wrap" role="math" aria-label="partial t omega plus u dot grad omega plus beta partial x psi equals minus nu negative Laplacian to the p omega minus alpha negative Laplacian to the q omega plus F">
+            ∂<sub>t</sub><i>ω</i> + <b>u</b> · ∇<i>ω</i> + <i>β</i>∂<sub>x</sub><i>ψ</i>
+            = −<i>ν</i>(−∆)<sup><i>p</i></sup><i>ω</i>
+            − <i>α</i>(−∆)<sup><i>q</i></sup><i>ω</i> + <i>F</i>
+          </div>
+          <div class="equation equation-secondary" role="math" aria-label="omega equals Laplacian psi, and u equals minus partial y psi comma partial x psi">
+            <i>ω</i> = ∆<i>ψ</i>,
+            <span class="equation-gap"></span>
+            <b>u</b> = (−∂<sub>y</sub><i>ψ</i>, ∂<sub>x</sub><i>ψ</i>)
+          </div>
+          <p>
+            The vorticity <i>ω</i> determines the streamfunction <i>ψ</i> and incompressible
+            velocity <b>u</b>. The coefficients <i>ν</i> and <i>α</i> control small- and
+            large-scale dissipation, while <i>F</i> injects vorticity into selected Fourier modes.
+          </p>
+        </div>
+
+        <p>
+          Nonlinear advection is evaluated on a fully padded 3/2-rule grid. The solver records
+          energy and enstrophy, their spectra and fluxes, and runs through matching CPU/OpenMP,
+          hybrid MPI/OpenMP, and NVIDIA CUDA implementations.
+        </p>
+
+        <ul class="feature-list" aria-label="Key features">
+          <li>Beta-plane dynamics</li>
+          <li>Energy and enstrophy diagnostics</li>
+          <li>CPU, MPI, and CUDA backends</li>
+        </ul>
+        <ExternalLink href={repositories.navierStokes}>View the GitHub repository</ExternalLink>
+      </div>
+    </article>
+
+    <article class="code-section code-section-reverse container" id="point-vortex">
+      <figure class="code-visual visual-vortices">
+        <img
+          class="code-image"
+          src="/assets/images/point_vortices-pale-yellow.png"
+          alt="Positive and negative point vortices distributed across a periodic domain"
+          width="1254"
+          height="1254"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>A turbulent point-vortex flow displaying clustering of same-signed vortices.</figcaption>
+      </figure>
+
+      <div class="code-copy">
+        <p class="code-topic">Vortex dynamics</p>
+        <h2>2D point vortices</h2>
+        <p>
+          A direct <i>N</i>-body solver for two-dimensional point-vortex dynamics. Instead of
+          resolving a continuous velocity field, it follows idealised vortices with fixed
+          circulations as they advect one another through the Biot–Savart interaction.
+        </p>
+
+        <div class="equation-block">
+          <p class="equation-label">Equations of motion in the infinite plane</p>
+          <div class="equation equation-stack" role="math" aria-label="d x i by d t equals minus one over two pi times the sum over j not equal to i of Gamma j times y i minus y j over r i j squared plus epsilon squared; d y i by d t equals one over two pi times the sum over j not equal to i of Gamma j times x i minus x j over r i j squared plus epsilon squared">
+            <span>
+              <span class="fraction"><span>d<i>x</i><sub>i</sub></span><span>d<i>t</i></span></span>
+              = −<span class="fraction"><span>1</span><span>2π</span></span>
+              ∑<sub><i>j</i>≠<i>i</i></sub> Γ<sub><i>j</i></sub>
+              <span class="fraction"><span><i>y</i><sub>i</sub>−<i>y</i><sub>j</sub></span><span><i>r</i><sub><i>ij</i></sub><sup>2</sup>+<i>ε</i><sup>2</sup></span></span>
+            </span>
+            <span>
+              <span class="fraction"><span>d<i>y</i><sub>i</sub></span><span>d<i>t</i></span></span>
+              = <span class="fraction"><span>1</span><span>2π</span></span>
+              ∑<sub><i>j</i>≠<i>i</i></sub> Γ<sub><i>j</i></sub>
+              <span class="fraction"><span><i>x</i><sub>i</sub>−<i>x</i><sub>j</sub></span><span><i>r</i><sub><i>ij</i></sub><sup>2</sup>+<i>ε</i><sup>2</sup></span></span>
+            </span>
+          </div>
+          <p>
+            Vortex <i>i</i> has position (<i>x</i><sub>i</sub>, <i>y</i><sub>i</sub>) and
+            circulation Γ<sub><i>i</i></sub>; <i>ε</i> optionally regularises close encounters.
+            Geometry-specific kernels provide singly periodic, doubly periodic, and circular-disk
+            domains as well as the infinite plane shown here.
+          </p>
+        </div>
+
+        <p>
+          The solver uses direct all-pairs velocity sums with adaptive
+          Dormand–Prince time integration. CPU/OpenMP, MPI, and CUDA backends use identical input,
+          trajectory, diagnostics, and checkpoint formats. The solver includes bespoke forcing and dissipation algorithms to study out-of-equilibrium point vortex motion.
+        </p>
+
+        <ul class="feature-list" aria-label="Key features">
+          <li>Four domain geometries</li>
+          <li>Adaptive timestepping</li>
+          <li>CPU, MPI, and CUDA backends</li>
+        </ul>
+        <ExternalLink href={repositories.pointVortex}>View the GitHub repository</ExternalLink>
+      </div>
+    </article>
+  </div>
+
+</SiteLayout>
+
+<style>
+  .codes-hero {
+    padding-block: 1.75rem clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .codes-hero-grid {
+    display: block;
+    margin-top: 1.5rem;
+  }
+
+  .code-topic,
+  .equation-label {
+    margin: 0 0 .65rem;
+    color: var(--accent);
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .hero-copy {
+    max-width: none;
+    margin: 0 0 1rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .hero-note {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+  }
+
+  .code-section {
+    display: grid;
+    grid-template-columns: minmax(17rem, .8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: clamp(2rem, 6vw, 5rem);
+    padding-block: clamp(2rem, 4vw, 3.5rem);
+    scroll-margin-top: 6rem;
+  }
+
+  .code-section-reverse {
+    grid-template-columns: minmax(0, 1.2fr) minmax(17rem, .8fr);
+  }
+
+  .code-section-reverse .code-visual {
+    grid-column: 2;
+  }
+
+  .code-section-reverse .code-copy {
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .code-visual {
+    position: sticky;
+    top: 7rem;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .code-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .code-visual figcaption {
+    padding-top: .7rem;
+    color: var(--muted);
+    font-size: .78rem;
+  }
+
+  .code-copy h2 {
+    margin: 0 0 1.5rem;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    font-weight: 600;
+    letter-spacing: -.035em;
+    line-height: 1.05;
+  }
+
+  .code-copy > p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    text-align: justify;
+  }
+
+  .code-copy > .code-topic {
+    color: var(--accent);
+    font-size: .75rem;
+    text-align: left;
+  }
+
+  .equation-block {
+    margin-block: 2rem;
+    padding: 1.4rem clamp(1rem, 3vw, 1.75rem);
+    border: 1px solid rgb(255 255 255 / 20%);
+    border-left: 3px solid var(--accent);
+    background: rgb(1 20 27 / 30%);
+  }
+
+  .equation-block p:last-child {
+    margin-bottom: 0;
+    color: var(--muted);
+    font-size: .9rem;
+    text-align: justify;
+  }
+
+  .equation {
+    margin-block: 1rem;
+    overflow-x: auto;
+    color: #fff;
+    font-family: "NewComputerModernMath", "Latin Modern Math", "STIX Two Math", "Cambria Math", "Times New Roman", serif;
+    font-size: clamp(1.08rem, 2.3vw, 1.45rem);
+    line-height: 1.9;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .equation-wrap {
+    white-space: normal;
+  }
+
+  .equation-secondary {
+    margin-top: -.35rem;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+  }
+
+  .equation-gap {
+    display: inline-block;
+    width: 1.5rem;
+  }
+
+  .equation-stack {
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+  }
+
+  .fraction {
+    display: inline-grid;
+    grid-template-rows: auto auto;
+    margin-inline: .12em;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.15;
+  }
+
+  .fraction > span:first-child {
+    padding-inline: .2em;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .fraction > span:last-child {
+    padding-inline: .2em;
+  }
+
+  .feature-list {
+    display: flex;
+    margin: 1.5rem 0;
+    padding: 0;
+    flex-wrap: wrap;
+    gap: .55rem;
+    list-style: none;
+  }
+
+  .feature-list li {
+    padding: .35rem .7rem;
+    border: 1px solid rgb(255 255 255 / 25%);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: .78rem;
+  }
+
+  @media (max-width: 900px) {
+    .code-section,
+    .code-section-reverse {
+      grid-template-columns: 1fr;
+    }
+
+    .code-section-reverse .code-visual,
+    .code-section-reverse .code-copy {
+      grid-row: auto;
+      grid-column: auto;
+    }
+
+    .code-visual {
+      position: static;
+    }
+
+  }
+
+  @media (max-width: 720px) {
+    .equation-stack {
+      font-size: 1rem;
+    }
+  }
+</style>
