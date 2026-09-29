@@ -53,20 +53,19 @@ const repositories = {
         <h2>1D Schrödinger–Helmholtz</h2>
         <p>
           A pseudo-spectral solver for the nonlocal 1D Schrödinger–Helmholtz equation and two
-          closely related limits. It is designed to explore nonlocal optical wave turbulence,
-          coherent structures, and the transition from nonlocal to local nonlinear dynamics on
-          a periodic one-dimensional domain.
+          closely related limits. It is designed to explore nonlocal optical wave turbulence and
+          coherent solitonic structures in a periodic one-dimensional domain. The equation models the propagation of light, along the <sub>z</sub> axis, through a nematic liquid crystal cell.
         </p>
 
         <div class="equation-block">
           <p class="equation-label">Governing equation</p>
-          <div class="equation" role="math" aria-label="i partial t psi equals c partial x x psi plus g psi times the inverse of one minus beta partial x x acting on the modulus of psi squared, plus mu psi">
-            <i>i</i>∂<sub>t</sub><i>ψ</i> = <i>c</i>∂<sub>xx</sub><i>ψ</i>
+          <div class="equation" role="math" aria-label="i partial z psi equals c partial x x psi plus g psi times the inverse of one minus beta partial x x acting on the modulus of psi squared, plus mu psi">
+            <i>i</i>∂<sub>z</sub><i>ψ</i> = <i>c</i>∂<sub>xx</sub><i>ψ</i>
             + <i>gψ</i>(1 − <i>β</i>∂<sub>xx</sub>)<sup>−1</sup>|<i>ψ</i>|<sup>2</sup>
             + <i>μψ</i>
           </div>
           <p>
-            Here <i>ψ</i>(<i>x</i>,<i>t</i>) is a complex wave field and the inverse Helmholtz
+            Here <i>ψ</i>(<i>x</i>,<i>z</i>) is a complex wave field and the inverse Helmholtz
             operator smooths the nonlinear density response over a scale set by <i>β</i>.
             Configurable forcing and large- and small-scale damping may also be included.
           </p>
